@@ -1,1 +1,1 @@
-
+git+https://github.com/cedadev/stac.py.git@usage-notebook
