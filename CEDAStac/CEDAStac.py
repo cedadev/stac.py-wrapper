@@ -10,7 +10,7 @@ from stac.stac import STAC
 import warnings
 
 
-class CEDAStac:
+class CEDAStacClient:
     """
     This class implements a Python API Client for STAC utilising stac.py
     """
