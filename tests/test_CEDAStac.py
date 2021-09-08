@@ -8,20 +8,38 @@ __copyright__ = "Copyright 2020 United Kingdom Research and Innovation"
 __license__ = "BSD - see LICENSE file in top-level package directory"
 
 import pytest
+import requests
+
+from CEDAStac.CEDAStac import CEDAStacClient
+
+url = 'https://stac-elasticsearch-master.130.246.131.9.nip.io'
+collection_id = 'Fj3reHsBhuk7QqVbt7P-'
+item_id = '4f2e47fb4e0eb437bb5336bba1fc1c23'
+Client = CEDAStacClient()
 
 
+class TestClient:
+    def test_get_collections(self):
+        collections = Client.get_collections()
+        response = requests.get(f"{url}/collections", verify=False)
+        response = response.json()
+        assert collections == response.get('collections')
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
+    def test_get_collection(self):
+        collection = Client.get_collection(collection_id=collection_id)
+        response = requests.get(f"{url}/collections/{collection_id}", verify=False)
+        response = response.json()
+        assert collection == response
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+    def test_get_itemcollection(self):
+        itemcollection = Client.get_itemcollection(collection_id=collection_id)
+        response = requests.get(f"{url}/collections/{collection_id}/items", verify=False)
+        response = response.json()
+        assert itemcollection == response
 
+    def test_get_item(self):
+        item = Client.get_item(collection_id=collection_id, item_id=item_id)
+        response = requests.get(f"{url}/collections/{collection_id}/items/{item_id}", verify=False)
+        response = response.json()
+        assert item == response
 
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
