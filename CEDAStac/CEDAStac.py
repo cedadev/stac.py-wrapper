@@ -6,10 +6,14 @@ __copyright__ = "Copyright 2020 United Kingdom Research and Innovation"
 __license__ = "BSD - see LICENSE file in top-level package directory"
 
 import json
-
 import requests
 from stac.stac import STAC
 import warnings
+
+import asyncio
+import aiohttp
+
+from CEDAStac.utils import async_search
 
 
 class CEDAStacClient:
@@ -60,7 +64,7 @@ class CEDAStacClient:
 
         result = self.Client.search(filter=query)
         if doctype == 'collection':
-            self.loop_results(result)
+            return asyncio.run(async_search(result))
         else:
             return result
 
@@ -74,19 +78,6 @@ class CEDAStacClient:
             self.loop_results(result)
         else:
             return result
-
-    def loop_results(self, page: dict, collections: set = set([])):
-        collections.update([item.get('collection') for item in page.get('features')])
-        if len(collections) == len(self.catalog()):
-            return list(collections)
-        if page.get('links'):
-            link = page.get('links')[-1]
-            if link.get('rel') == 'next':
-                response = requests.get(url=link.get('href'), verify=False)
-                response = response.json()
-                return self.loop_results(page=response, collections=collections)
-        print(collections)
-        return collections
 
     def queryables(self):
         response = requests.get(f"{self._url}/queryables", verify=False)
