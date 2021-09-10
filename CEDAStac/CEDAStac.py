@@ -75,7 +75,7 @@ class CEDAStacClient:
         response = requests.post(url=f"{self._url}/search", data=data, verify=False, headers=self._headers)
         result = response.json()
         if doctype == 'collection':
-            self.loop_results(result)
+            return asyncio.run(async_search(result))
         else:
             return result
 
