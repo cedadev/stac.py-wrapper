@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# CEDAStac documentation build configuration file, created by
+# client documentation build configuration file, created by
 # sphinx-quickstart on Fri Jun  9 13:47:02 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'CEDAStac Client'
+project = 'client Client'
 copyright = "2021, Mahir Rahman"
 author = "Mahir Rahman"
 
@@ -55,7 +55,7 @@ author = "Mahir Rahman"
 # the built documents.
 #
 # The short X.Y version.
-release = get_distribution('CEDAStac').version
+release = get_distribution('client').version
 # for example take major/minor
 version = '.'.join(release.split('.')[:2])
 
@@ -127,8 +127,8 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass
 # [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'CEDAStac.tex',
-     'CEDAStac Client Documentation',
+    (master_doc, 'client.tex',
+     'client Client Documentation',
      'Mahir Rahman', 'manual'),
 ]
 
@@ -138,8 +138,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'CEDAStac',
-     'CEDAStac Client Documentation',
+    (master_doc, 'client',
+     'client Client Documentation',
      [author], 1)
 ]
 
@@ -150,10 +150,10 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'CEDAStac',
-     'CEDAStac Client Documentation',
+    (master_doc, 'client',
+     'client Client Documentation',
      author,
-     'CEDAStac',
+     'client',
      'A Python Client to access the CEDA STAC ',
      'Miscellaneous'),
 ]

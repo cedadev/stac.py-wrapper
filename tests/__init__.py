@@ -1,4 +1,4 @@
-"""Unit test package for CEDAStac."""
+"""Unit test package for client."""
 
 __author__ = """Mahir Rahman"""
 __contact__ = 'kazi.mahir@stfc.ac.uk'

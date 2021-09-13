@@ -11,12 +11,11 @@ from stac.stac import STAC
 import warnings
 
 import asyncio
-import aiohttp
 
-from CEDAStac.utils import async_search
+from client.utils import async_search
 
 
-class CEDAStacClient:
+class StacPyClient:
     """
     This class implements a Python API Client for STAC utilising stac.py
     """

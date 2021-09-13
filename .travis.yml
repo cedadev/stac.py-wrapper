@@ -40,5 +40,5 @@ deploy:
     secure: PLEASE_REPLACE_ME
   on:
     tags: true
-    repo: mahir-sparkess/CEDAStac
+    repo: mahir-sparkess/client
     python: 3.7
