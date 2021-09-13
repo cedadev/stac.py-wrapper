@@ -1,4 +1,4 @@
-"""Top-level package for client Client."""
+"""Top-level package for stac.py Client."""
 
 __author__ = """Mahir Rahman"""
 __contact__ = 'kazi.mahir@stfc.ac.uk'
