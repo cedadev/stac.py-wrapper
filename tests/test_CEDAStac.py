@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for `CEDAStac` package."""
+"""Tests for `client` package."""
 
 __author__ = """Mahir Rahman"""
 __contact__ = 'kazi.mahir@stfc.ac.uk'
@@ -10,7 +10,7 @@ __license__ = "BSD - see LICENSE file in top-level package directory"
 import pytest
 import requests
 
-from CEDAStac.CEDAStac import CEDAStacClient
+from client.CEDAStac import CEDAStacClient
 
 url = 'https://stac-elasticsearch-master.130.246.131.9.nip.io'
 collection_id = 'Fj3reHsBhuk7QqVbt7P-'

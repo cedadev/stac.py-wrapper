@@ -11,23 +11,18 @@ from stac.stac import STAC
 import warnings
 
 import asyncio
-import aiohttp
 
-from CEDAStac.utils import async_search
+from client.utils import async_search
 
 
-class CEDAStacClient:
+class StacPyClient:
     """
     This class implements a Python API Client for STAC utilising stac.py
     """
 
-    def __init__(self):
-        self._url = "https://stac-elasticsearch-master.130.246.131.9.nip.io"
+    def __init__(self, url=str):
+        self._url = url
         self.Client = STAC(url=self._url, verify=False)
-        self._headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
         warnings.simplefilter('ignore')
 
     def catalog(self):
@@ -72,7 +67,7 @@ class CEDAStacClient:
         if filter:
             query['filter'] = filter
         data = json.dumps(query)
-        response = requests.post(url=f"{self._url}/search", data=data, verify=False, headers=self._headers)
+        response = requests.post(url=f"{self._url}/search", json=data, verify=False)
         result = response.json()
         if doctype == 'collection':
             return asyncio.run(async_search(result))
