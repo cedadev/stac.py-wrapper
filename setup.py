@@ -15,10 +15,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    "git+https://github.com/cedadev/stac.py.git",
-    "aiohttp"
-]
+requirements = [line.strip() for line in open("requirements.txt")]
 
 dev_requirements = [line.strip() for line in open("requirements_dev.txt")]
 

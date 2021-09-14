@@ -1,2 +1,2 @@
-git+https://github.com/cedadev/stac.py.git
+git+github.com/cedadev/stac.py.git
 aiohttp
