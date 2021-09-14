@@ -15,8 +15,6 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [line.strip() for line in open("requirements.txt")]
-
 dev_requirements = [line.strip() for line in open("requirements_dev.txt")]
 
 test_requirements = ['pytest>=3', ]
@@ -63,7 +61,11 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
     description="A Python Client to access the CEDA STAC ",
-    install_requires=requirements,
+    install_requires=[
+        'aiohttp',
+        'requests',
+        'stac.py'
+    ],
     license=__license__,
     long_description=readme,
     long_description_content_type="text/x-rst",
