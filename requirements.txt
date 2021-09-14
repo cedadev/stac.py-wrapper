@@ -1,5 +1,2 @@
 git+https://github.com/cedadev/stac.py.git
-pytest~=6.2.5
-requests~=2.26.0
-aiohttp~=3.7.4.post0
-setuptools~=56.0.0
+aiohttp
