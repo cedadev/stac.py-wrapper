@@ -12,6 +12,9 @@ CEDAStac Client
 .. image:: https://readthedocs.org/projects/CEDAStac/badge/?version=latest
         :target: https://CEDAStac.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
+        
+.. image:: https://mybinder.org/badge_logo.svg
+        :target: https://mybinder.org/v2/gh/cedadev/stac.py-wrapper/HEAD?filepath=examples%2Fusage.ipynb
 
 
 
