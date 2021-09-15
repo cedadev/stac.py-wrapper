@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=CEDAStac
+set SPHINXPROJ=stacpyWraperClient
 
 if "%1" == "" goto help
 

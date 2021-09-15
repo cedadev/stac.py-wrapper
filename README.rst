@@ -1,29 +1,29 @@
 ===============
-CEDAStac Client
+StacPyClient
 ===============
 
 
-.. image:: https://img.shields.io/pypi/v/CEDAStac.svg
-        :target: https://pypi.python.org/pypi/CEDAStac
+.. image:: https://img.shields.io/pypi/v/stacpy-wrapper.svg
+        :target: https://pypi.python.org/pypi/stacpy-wrapper
 
-.. image:: https://img.shields.io/travis/mahir-sparkess/CEDAStac.svg
-        :target: https://travis-ci.com/mahir-sparkess/CEDAStac
+.. image:: https://img.shields.io/travis/cedadev/stacpy-wrapper.svg
+        :target: https://travis-ci.com/mahir-sparkess/stac.py-wrapper
 
-.. image:: https://readthedocs.org/projects/CEDAStac/badge/?version=latest
-        :target: https://CEDAStac.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/stacpy-wrapper/badge/?version=latest
+        :target: https://stacpy-wrapper.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
-        
+
 .. image:: https://mybinder.org/badge_logo.svg
-        :target: https://mybinder.org/v2/gh/cedadev/stac.py-wrapper/HEAD?filepath=examples%2Fusage.ipynb
+        :target: https://mybinder.org/v2/gh/cedadev/stac.py-wrapper/HEAD?filepath=docs%2Fexamples%2Fusage.ipynb
 
 
 
 
-A Python Client to access the CEDA STAC 
+A Python Client that wraps stac.py
 
 
 * Free software: BSD - see LICENSE file in top-level package directory
-* Documentation: https://CEDAStac.readthedocs.io.
+* Documentation: https://stacpy-wrapper.readthedocs.io.
 
 
 Features

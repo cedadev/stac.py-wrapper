@@ -43,3 +43,6 @@ class TestClient:
         response = response.json()
         assert item == response
 
+
+class TestSearch:
+    pass

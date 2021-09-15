@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = CEDAStac
+SPHINXPROJ    = stac.py-wrapper-client
 SOURCEDIR     = .
 BUILDDIR      = _build
 

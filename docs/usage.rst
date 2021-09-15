@@ -1,7 +1,5 @@
 =====
 Usage
 =====
+.. include:: ../examples/usage.ipynb
 
-To use CEDAStac Client in a project::
-
-    import CEDAStac

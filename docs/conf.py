@@ -31,7 +31,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'nbsphinx']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'client Client'
+project = 'stac.py wrapper Client'
 copyright = "2021, Mahir Rahman"
 author = "Mahir Rahman"
 
@@ -55,7 +55,7 @@ author = "Mahir Rahman"
 # the built documents.
 #
 # The short X.Y version.
-release = get_distribution('client').version
+release = '0.1.0'
 # for example take major/minor
 version = '.'.join(release.split('.')[:2])
 
@@ -83,7 +83,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
@@ -100,7 +100,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'CEDAStacdoc'
+htmlhelp_basename = 'stac.py-wrapper-doc'
 
 
 # -- Options for LaTeX output ------------------------------------------
@@ -128,7 +128,7 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'client.tex',
-     'client Client Documentation',
+     'stac.py wrapper client Documentation',
      'Mahir Rahman', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'client',
-     'client Client Documentation',
+     'stac.py wrapper client Documentation',
      [author], 1)
 ]
 
@@ -151,12 +151,13 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'client',
-     'client Client Documentation',
+     'stac.py wrapper client Documentation',
      author,
      'client',
-     'A Python Client to access the CEDA STAC ',
+     'A wrapper Client for Stac.py',
      'Miscellaneous'),
 ]
 
-
+nbsphinx_allow_errors = True
+nbsphinx_execute = 'never'
 

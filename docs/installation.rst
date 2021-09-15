@@ -8,13 +8,13 @@ Installation
 Stable release
 --------------
 
-To install CEDAStac Client, run this command in your terminal:
+To install StacPyClient, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install CEDAStac
+    $ pip install StacPyClient
 
-This is the preferred method to install CEDAStac Client, as it will always install the most recent stable release.
+This is the preferred method to install StacPyClient, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -26,19 +26,19 @@ you through the process.
 From sources
 ------------
 
-The sources for CEDAStac Client can be downloaded from the `Github repo`_.
+The sources for StacPyClient can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/mahir-sparkess/CEDAStac
+    $ git clone git://github.com/cedadev/stac.py-wrapper
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/mahir-sparkess/CEDAStac/tarball/master
+    $ curl -OJL https://github.com/cedadev/stac.py-wrapper/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/mahir-sparkess/CEDAStac
-.. _tarball: https://github.com/mahir-sparkess/CEDAStac/tarball/master
+.. _Github repo: https://github.com/cedadev/stac.py-wrapper
+.. _tarball: https://github.com/cedadev/stac.py-wrapper/tarball/master
