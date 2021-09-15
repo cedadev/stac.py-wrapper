@@ -1,4 +1,4 @@
-Welcome to CEDAStac Client's documentation!
+Welcome to StacPy Wrapper Client's documentation!
 ===========================================================
 
 .. toctree::
@@ -7,7 +7,7 @@ Welcome to CEDAStac Client's documentation!
 
    readme
    installation
-   usage
+   examples/usage
    modules
    contributing
    authors
