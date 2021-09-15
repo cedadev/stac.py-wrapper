@@ -94,14 +94,12 @@ class StacPyClient:
         if freetext:
             return self.search(q=freetext, doctype=doctype, **query)
 
-        if 'properties' in query.keys():
-            filter = query.pop('properties', None)
-            return self.post_search(query=query, filter=filter, doctype=doctype)
+        if 'collections' in query:
+            collections = query['collections']
+            query['collections'] = [getattr(collection, 'id', collection) for collection in collections]
 
-        if {'bbox', 'intersects'}.intersection(query.keys()):
-            return self.post_search(query=query, doctype=doctype)
+        result = self.Client.search(**query)
 
-        result = self.Client.search(filter=query)
         if doctype == 'collection':
             return asyncio.run(async_search(result))
         else:

@@ -45,4 +45,26 @@ class TestClient:
 
 
 class TestSearch:
-    pass
+    def test_free_text_search(self):
+        res1 = Client.search(q="AerChemMIP").get('features')
+        res2 = Client.search("AerChemMIP").get('features')
+        res3 = Client.search(q="AerChem*").get('features')
+        res4 = Client.search(q="aerchemmip").get('features')
+        assert res1 == res2 == res3 == res4
+
+    def test_facet_search(self):
+        filter = {
+             "eq": [
+                 {"property": "institution_id"},
+                 "CNRM-CERFACS"
+             ]
+          }
+        res1 = Client.search(filter=filter)
+        res2 = requests.post(url=f"{url}/search", json={'filter': filter}, verify=False)
+        res2 = res2.json()
+        assert res1 == res2
+
+    def test_object_search(self):
+        collections = Client.get_collections()
+        res1 = Client.search(collections=collections)
+        assert len(res1.get('context').get('collections')) == len(collections)
