@@ -10,7 +10,7 @@ StacPyClient
         :target: https://travis-ci.com/mahir-sparkess/stac.py-wrapper
 
 .. image:: https://readthedocs.org/projects/stacpy-wrapper/badge/?version=latest
-        :target: https://stacpy-wrapper.readthedocs.io/en/latest/?badge=latest
+        :target: https://cedadev.github.io/stac.py-wrapper/
         :alt: Documentation Status
 
 .. image:: https://mybinder.org/badge_logo.svg
