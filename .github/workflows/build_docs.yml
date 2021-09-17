@@ -11,6 +11,9 @@ jobs:
     name: Sphinx docs to gh-pages
     steps:
       - uses: actions/checkout@v2
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: -o docs/examples/notebook.rst docs/examples/usage.ipynb
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8

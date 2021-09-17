@@ -1,5 +1,5 @@
 =====
 Usage
 =====
-.. include:: ../examples/usage.ipynb
 
+.. include:: examples/notebook.rst

@@ -7,7 +7,7 @@ Welcome to StacPy Wrapper Client's documentation!
 
    readme
    installation
-   examples/usage
+   usage
    modules
    contributing
    authors
