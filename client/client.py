@@ -105,17 +105,6 @@ class StacPyClient:
         else:
             return result
 
-    def post_search(self, query: dict, filter: dict = None, doctype: str = 'item'):
-        if filter:
-            query['filter'] = filter
-        data = json.dumps(query)
-        response = requests.post(url=f"{self._url}/search", json=data, verify=False)
-        result = response.json()
-        if doctype == 'collection':
-            return asyncio.run(async_search(result))
-        else:
-            return result
-
     def queryables(self):
         """
         Get the queryables of available properties to search.
