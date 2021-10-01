@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; stac.py wrapper Client 0.1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> stac.py wrapper Client
+          </a>
+              <div class="version">
+                0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">stac.py wrapper Client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h1>
+<div class="cell markdown docutils container">
+<p class="rubric" id="id1">Usage</p>
+<p class="rubric" id="initialise-client">Initialise Client</p>
+<p>On initialisation, the client will post the conformance classes which
+are list of available addon functions available for a certain STAC
+endpoint.</p>
+<p>First setup of the client, use a STAC endpoint URL as client
+parameter:</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">client.client</span> <span class="kn">import</span> <span class="n">StacPyClient</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.stac.ceda.ac.uk&#39;</span>
+<span class="n">Client</span> <span class="o">=</span> <span class="n">StacPyClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display function</span>
+<span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="basic-get-usages">Basic GET usages</p>
+<p class="rubric" id="get-collections">GET Collections</p>
+<p><strong>/collections</strong></p>
+<p>Retrieve a list of collections available at from the STAC endpoint.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collections</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">get_collections</span><span class="p">()</span>
+<span class="c1"># returns list of collections JSON</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">collections</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="get-collection">GET Collection</p>
+<p><strong>/collections/{collectionId}</strong></p>
+<p>Retreive a collection, given an collection ID, from the STAC
+endpoint.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collection_id</span> <span class="o">=</span> <span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="n">collection_id</span><span class="o">=</span><span class="n">collection_id</span><span class="p">)</span>
+
+<span class="c1"># returns a collection object</span>
+<span class="n">display</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="get-itemcollection">GET Itemcollection</p>
+<p><strong>/collections/{collectionId}/items</strong></p>
+<p>Retrieve a list of items of a specific collection.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">get_itemcollection</span><span class="p">(</span><span class="n">collection_id</span><span class="o">=</span><span class="n">collection_id</span><span class="p">)</span>
+<span class="c1"># Returns an item collection object which is a list of items from a collection id,</span>
+<span class="c1"># or get an item collection from a collection object:</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">get_items</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="get-item">GET Item</p>
+<p><strong>/collections/{collectionId}/items/{itemId}</strong></p>
+<p>Retrieve an item object, from a specific collection, given an item
+ID.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">item_id</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="n">collection_id</span><span class="o">=</span><span class="n">collection_id</span><span class="p">,</span> <span class="n">item_id</span><span class="o">=</span><span class="n">item_id</span><span class="p">)</span>
+<span class="c1"># Returns an item object,</span>
+<span class="c1"># or get an item from a collection object given an item ID</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">get_items</span><span class="p">(</span><span class="n">item_id</span><span class="o">=</span><span class="n">item_id</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="get-assets">GET Assets</p>
+<p>Retrieve a list of assets of a given item.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">assets</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">assets</span>
+<span class="c1"># Returns a list of assets JSON of a specific item.</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">assets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="queryables">Queryables</p>
+<p><strong>/queryables</strong></p>
+<p>Retrieve a JSON response for properties to query search.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">queryables</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">queryables</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">queryables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="collection-queryables">Collection Queryables</p>
+<p><strong>/collections/{collectionId}/queryables</strong></p>
+<p>Retrieve a JSON response for properties to query in a collection.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">queryables</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">collection_queryables</span><span class="p">(</span><span class="n">collection_id</span><span class="o">=</span><span class="n">collection_id</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">queryables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="search">Search</p>
+<p>Usages examples of how search using the python wrapper client. (See
+Conformance classes <code class="docutils literal notranslate"><span class="pre">item-search</span></code> for capabilities)</p>
+<p class="rubric" id="basic-usage">Basic Usage:</p>
+<p>Search the STAC endpoint by filtering through these optional keys:</p>
+<ul class="simple">
+<li><p>collections: list of collection IDs</p></li>
+<li><p>ids: list of item IDs</p></li>
+<li><p>bbox: list of integers for bounding box</p></li>
+<li><p>datetime: string of open/closed ended dates or single date.</p></li>
+<li><p>limit: number of items to list in one page. <em>Default 10</em>.</p></li>
+</ul>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="c1"># returns every item available</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Fj3reHsBhuk7QqVbt7P-&#39;</span><span class="p">],</span>
+    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;2ef41eee0710db0a04c7089b3da3ee6b&#39;</span><span class="p">],</span>
+    <span class="n">datetime</span><span class="o">=</span><span class="s1">&#39;2018-02-12T00:00:00Z/2018-03-18T12:31:12Z&#39;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+<span class="c1"># returns an item collection object of any item that satisfies these arguments.</span>
+<span class="c1"># Note: this specific search query won&#39;t match anything, though mix and match</span>
+<span class="c1"># the parameters with different values and see what comes up. All are optional.</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="free-text-search">Free Text Search</p>
+<p>Free text search is provided by the client, using a positional
+argument as the first or by the <code class="docutils literal notranslate"><span class="pre">q</span></code> parameter. Free text search
+supports case-insensitive and partial search.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># All these queries end up with the same search result:</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s2">&quot;AerChemMIP&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">][</span><span class="s1">&#39;matched&#39;</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;AerChemMIP&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">][</span><span class="s1">&#39;matched&#39;</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;aerchemmip&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;context&#39;</span><span class="p">][</span><span class="s1">&#39;matched&#39;</span><span class="p">])</span>
+
+<span class="c1"># Can use wildcard queries for partial matches</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;AerChem*&quot;</span><span class="p">)</span> <span class="c1"># the star, *, is a wildcard symbol.</span>
+
+
+<span class="c1"># It is also possible to add other arguments to the free text search:</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;aerchem*&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">=</span><span class="s2">&quot;2000-11-01T00:00Z/..&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell markdown docutils container">
+<p class="rubric" id="facet-search">Facet Search</p>
+<p>Filter the search result based on facets of an item. The facet
+request body should use a dictionary with valid facets found with
+queryables, labeled under the filter argument.</p>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The filter is the label for facet search where it consists of a dictionary</span>
+<span class="c1"># made up of the facet as the key and value what to filter for.</span>
+<span class="c1"># Just like others, it can be queried with other arguments:</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;eq&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;property&quot;</span><span class="p">:</span> <span class="s2">&quot;variable&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;clt&quot;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell code docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Mahir Rahman.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
