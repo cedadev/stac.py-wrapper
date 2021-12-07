@@ -12,7 +12,7 @@ import requests
 
 from client.client import StacPyClient
 
-url = 'https://stac-elasticsearch-master.130.246.131.9.nip.io'
+url = 'https://api.stac.ceda.ac.uk'
 collection_id = 'Fj3reHsBhuk7QqVbt7P-'
 item_id = '5ad82e4c683d7dd9865c3849677b135e'
 Client = StacPyClient(url=url)
